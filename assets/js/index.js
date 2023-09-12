@@ -43,14 +43,31 @@ function pintarCards(arrayEventos) {
     cards.appendChild(tarjeta);
   });
 }
-pintarCards(data.events);
+let todosLosEventos = [];
+// pintarCards(todosLosEventos);
+
+//--------------------API--------------------
+console.log("Antes del fetch");
+
+fetch("https://mindhub-xj03.onrender.com/api/amazing")
+.then(response => response.json())
+.then(dataAPI => {
+  console.log(dataAPI.events);
+  todosLosEventos = dataAPI.events
+  console.log(todosLosEventos);
+  pintarCards(dataAPI.events);
+})
+.catch(error => console.log(error));
+
+console.log(todosLosEventos);
+console.log("Despues del fetch");
 
 //--------------------CREAR CHECKBOX----------------------
 const elementos = [
   { 
     id: "inlineCheckbox1", 
-    value: "food fair", 
-    label: "Food Fair" 
+    value: "food", 
+    label: "Food" 
   },
   { 
     id: "inlineCheckbox2", 
@@ -59,13 +76,13 @@ const elementos = [
   },
   { 
     id: "inlineCheckbox3", 
-    value: "costume party", 
-    label: "Costume Party" 
+    value: "party", 
+    label: "Party" 
   },
   { 
     id: "inlineCheckbox4", 
-    value: "music concert", 
-    label: "Music Concert" 
+    value: "concert", 
+    label: "Concert" 
   },
   { 
     id: "inlineCheckbox5", 
@@ -74,8 +91,8 @@ const elementos = [
   },
   { 
     id: "inlineCheckbox6", 
-    value: "book exchange", 
-    label: "Book Exchange" 
+    value: "book", 
+    label: "Book" 
   },
   { 
     id: "inlineCheckbox7", 
@@ -147,13 +164,12 @@ function filtrarPorCategoria(arrayDeEventos) {
 
 //-------------------COMBINANDO FILTROS--------------------
 function filtroCombinado() {
-  let filtradoPorTexto = filtrarPorTexto(data.events, inputTexto.value);
+  let filtradoPorTexto = filtrarPorTexto(todosLosEventos, inputTexto.value);
   let filtradoPorTextoYCategoria = filtrarPorCategoria(filtradoPorTexto);
 
   if (filtradoPorTextoYCategoria.length === 0) {
-    cards.innerHTML = '<p style="background-color: yellow;">No se encontraron eventos que coincidan con la búsqueda.</p>';
+    cards.innerHTML = '<p style="background-color: yellow;">"Sorry, no matches found for your search. Please try again."</p>';
   } else {
     pintarCards(filtradoPorTextoYCategoria);
   }
 }
-

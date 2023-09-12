@@ -9,6 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Stats</title>
+    <style>
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        th {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -106,6 +116,50 @@
         <table class="container table table-bordered border-secondary mt-4">
             <thead>
                 <tr>
+                    <th scope="col" colspan="3">EVENTS STATISTICS</th>
+                </tr>
+                <tr>
+                    <th scope="col">Events with highest % of assistance</th>
+                    <th scope="col">Events with lowest % of assistance</th>
+                    <th scope="col">Events with larger capacity</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+            </tbody>
+        </table>
+        <table class="container table table-bordered border-secondary mt-4">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="3">UPCOMING EVENTS STATISTICS BY CATEGORY</th>
+                </tr>
+                <tr>
+                    <th scope="col">Categories</th>
+                    <th scope="col">Revenues</th>
+                    <th scope="col">Pertentage of assistance</th>
+                </tr>
+            </thead>
+            <tbody id="tabla2">
+            </tbody>
+        </table>
+        <table class="container table table-bordered border-secondary mt-4">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="3">PAST EVENTS STATISTICS BY CATEGORY</th>
+                </tr>
+                <tr>
+                    <th scope="col">Categories</th>
+                    <th scope="col">Revenues</th>
+                    <th scope="col">Pertentage of assistance</th>
+                </tr>
+            </thead>
+            <tbody id="tabla3">
+            </tbody>
+        </table>
+
+
+        <!-- <table class="container table table-bordered border-secondary mt-4">
+            <thead>
+                <tr>
                     <th scope="col" colspan="3">Events Statistics</th>
                 </tr>
             </thead>
@@ -155,7 +209,7 @@
                     <td></td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
         <!--//TABLE//-->
     </main>
     <footer class="bg-black bg-gradient">
@@ -169,6 +223,7 @@
         </div>
     </footer>
 
+    <script src="../js/stats.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
