@@ -41,7 +41,9 @@ function pintarDetails(evento) {
     <p class="card-text text-white">Category: ${evento.category}</p>
     <p class="card-text text-white">Place: 	${evento.place}</p>
     <p class="card-text text-white">Capacity: ${evento.capacity}</p>
-    <p class="card-text text-white">Assistance: ${evento.assistance}</p>
+    <p class="card-text text-white">
+  ${evento.assistance !== undefined ? `Assistance: ${evento.assistance}` : evento.estimate !== undefined ? `Estimate: ${evento.estimate}` : ''}
+</p>
     <p class="card-text text-white">Price: ${evento.price}</p>
   </div>
   `;
